@@ -10,7 +10,13 @@ function( Backbone, Font ) {
 	return Backbone.Collection.extend({
 		initialize: function() {},
 
-		model: Font
+		model: Font,
+
+		randomize: function(){
+			var arr = this.pluck("id");
+   			var model = this.get(arr[Math.floor(Math.random() * arr.length)]);
+   			return model;
+		}
 	});
 
 
