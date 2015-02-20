@@ -20,7 +20,10 @@ function( Backbone, TitleFiltersTmpl  ) {
 
 		/* Ui events hash */
 		events: {},
+		
+		getFilter: function(){
 
+		},
 		/* on render callback */
 		onRender: function() {}
 	});
