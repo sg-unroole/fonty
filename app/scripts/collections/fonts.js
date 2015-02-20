@@ -5,6 +5,7 @@ define([
 function( Backbone, Font ) {
     'use strict';
 
+
 	/* Return a collection class definition */
 	return Backbone.Collection.extend({
 		initialize: function() {},
@@ -12,7 +13,7 @@ function( Backbone, Font ) {
 
 		randomize: function(filters) {
 			var filtered_collection = this.filterData(filters);
-			// get random from filtered collection
+   			return filtered_collection[Math.floor(Math.random() * filtered_collection.length)];
 
 		},
 
@@ -23,5 +24,8 @@ function( Backbone, Font ) {
 
 			return filtered;
 		}
+
 	});
+
+
 });

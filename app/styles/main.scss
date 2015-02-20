@@ -1,6 +1,43 @@
 @import 'sass-bootstrap/lib/bootstrap';
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 400px;
+
+body {
+	background:#525252;
+	margin:0 0 20px;
+	color:#FFF;
+}
+#header .container {
+	color:#acd373;
+	font-size:150px;
+	padding-top:150px;
+	font-weight:900;
+	line-height:150px;
+}
+#filters {
+	background:#363636;
+	padding:50px 0;
+}
+.textbox {
+	background:#FFF;
+	width:48%;
+	float:left;
+}
+.spacer {
+	width:4%;
+	float:left;
+}
+.textbox, .spacer {
+	height:400px;
+}
+#content {
+	margin-top:50px;
+	color:#000;
+}
+#titleFiltersRegion {
+	width:50%;
+	float:left;
+}
+#pFiltersRegion {
+	width:50%;
+	float:left;
 }
