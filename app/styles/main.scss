@@ -5,6 +5,7 @@ body {
 	background:#525252;
 	margin:0 0 20px;
 	color:#FFF;
+	font-size:16px;
 }
 #header .container {
 	color:#acd373;
@@ -21,23 +22,21 @@ body {
 	background:#FFF;
 	width:48%;
 	float:left;
+	padding:100px;
+	box-sizing:border-box;
 }
 .spacer {
 	width:4%;
 	float:left;
 }
-.textbox, .spacer {
+.spacer {
 	height:400px;
 }
 #content {
 	margin-top:50px;
 	color:#000;
 }
-#titleFiltersRegion {
-	width:50%;
-	float:left;
-}
-#pFiltersRegion {
+#titleFiltersRegion, #pFiltersRegion {
 	width:50%;
 	float:left;
 }

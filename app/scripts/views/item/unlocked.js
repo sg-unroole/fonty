@@ -8,8 +8,9 @@ function( Backbone, UnlockedTmpl  ) {
 	/* Return a ItemView class definition */
 	return Backbone.Marionette.ItemView.extend({
 
-		initialize: function() {
-			console.log("initialize a Unlocked ItemView");
+		initialize: function(options) {
+			this.model = options.model;
+			this.pmodel = options.pmodel;
 		},
 		
     	template: UnlockedTmpl,
@@ -22,7 +23,10 @@ function( Backbone, UnlockedTmpl  ) {
 		events: {},
 
 		/* on render callback */
-		onRender: function() {}
+		onRender: function() {
+			this.model.setFont(this.$el.find("h1"));
+			this.pmodel.setFont(this.$el.find("p"));
+		}
 	});
 
 });

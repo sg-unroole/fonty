@@ -2,17 +2,18 @@ define([
 	'backbone',
 	'hbs!tmpl/locked'
 ],
-function( Backbone, LockedTmpl  ) {
+function( Backbone, UnlockedTmpl  ) {
     'use strict';
 
 	/* Return a ItemView class definition */
 	return Backbone.Marionette.ItemView.extend({
 
-		initialize: function() {
-			console.log("initialize a Locked ItemView");
+		initialize: function(options) {
+			this.model = options.model;
+			this.pmodel = options.pmodel;
 		},
 		
-    	template: LockedTmpl,
+    	template: UnlockedTmpl,
         
 
     	/* ui selector cache */
@@ -22,7 +23,11 @@ function( Backbone, LockedTmpl  ) {
 		events: {},
 
 		/* on render callback */
-		onRender: function() {}
+		onRender: function() {
+			this.model.setFont(this.$el.find("h1"));
+			this.pmodel.setFont(this.$el.find("p"));
+		}
 	});
 
 });
+

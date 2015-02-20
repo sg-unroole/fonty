@@ -13,6 +13,10 @@ function( Backbone, Font ) {
 
 		randomize: function(filters) {
 			var filtered_collection = this.filterData(filters);
+			if (filtered_collection == undefined || filtered_collection.length == 0) {
+				filtered_collection = this.models;
+			}
+
    			return filtered_collection[Math.floor(Math.random() * filtered_collection.length)];
 
 		},

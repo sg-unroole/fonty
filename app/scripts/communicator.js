@@ -25,12 +25,16 @@ function(App, Backbone, Marionette, GoogleAPI, Fonts, Font,
 			var mainLayout = new MainLayout();
 			$("body").append(mainLayout.render().el);
 
+			var fonts = this.getFonts(),
+				header1_model = fonts.randomize([]),
+				paragraph1_model = fonts.randomize([]),
+				header2_model = fonts.randomize([]),
+				paragraph2_model = fonts.randomize([]);
+
 			mainLayout.titleFiltersRegion.show(new TitleFiltersView({}));
 			mainLayout.pFiltersRegion.show(new PFiltersView({}));
-			mainLayout.lockedRegion.show(new LockedView({}));
-			mainLayout.unlockedRegion.show(new UnlockedView({}));
-
-			this.getFonts();
+			mainLayout.lockedRegion.show(new LockedView({model:header1_model, pmodel:paragraph1_model}));
+			mainLayout.unlockedRegion.show(new UnlockedView({model:header2_model, pmodel:paragraph2_model}));
 		},
 
 		getFonts: function() {
@@ -38,6 +42,7 @@ function(App, Backbone, Marionette, GoogleAPI, Fonts, Font,
 				fonts = new Fonts();
 
 			google_api.fetch({
+				async:false,
 				success: function(model) {
 					var all_fonts = model.get("items")
 					for(var item in all_fonts ) {
@@ -48,7 +53,7 @@ function(App, Backbone, Marionette, GoogleAPI, Fonts, Font,
 					}
 				}
 			});
-			console.log(fonts);
+			return fonts;
 		}
 	});
 
