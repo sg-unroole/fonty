@@ -25,16 +25,12 @@ function(App, Backbone, Marionette, GoogleAPI, Fonts, Font,
 			var mainLayout = new MainLayout();
 			$("body").append(mainLayout.render().el);
 
-			var fonts = this.getFonts(),
-				header1_model = fonts.randomize([]),
-				paragraph1_model = fonts.randomize([]),
-				header2_model = fonts.randomize([]),
-				paragraph2_model = fonts.randomize([]);
+			var fonts = this.getFonts();
 
 			mainLayout.titleFiltersRegion.show(new TitleFiltersView({}));
 			mainLayout.pFiltersRegion.show(new PFiltersView({}));
-			mainLayout.lockedRegion.show(new LockedView({model:header1_model, pmodel:paragraph1_model}));
-			mainLayout.unlockedRegion.show(new UnlockedView({model:header2_model, pmodel:paragraph2_model}));
+			mainLayout.lockedRegion.show(new LockedView({collection:fonts}));
+			mainLayout.unlockedRegion.show(new UnlockedView({collection:fonts}));
 		},
 
 		getFonts: function() {

@@ -9,8 +9,9 @@ function( Backbone, UnlockedTmpl  ) {
 	return Backbone.Marionette.ItemView.extend({
 
 		initialize: function(options) {
-			this.model = options.model;
-			this.pmodel = options.pmodel;
+			this.collection = options.collection;
+			this.model = this.collection.randomize([]);
+			this.pmodel = this.collection.randomize([]);
 		},
 		
     	template: UnlockedTmpl,
