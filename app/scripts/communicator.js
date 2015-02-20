@@ -1,23 +1,34 @@
 define([
+	'application',
 	'backbone',
 	'backbone.marionette',
 	'models/google_api',
 	'collections/fonts',
-	'models/font'
+	'models/font',
+
+	'views/layout/index',
+	'views/item/locked',
+	'views/item/p_filters',
+	'views/item/title_filters',
+	'views/item/unlocked'
 ],
-function( Backbone, Marionette, GoogleAPI, Fonts, Font ) {
+function(App, Backbone, Marionette, GoogleAPI, Fonts, Font, 
+	MainLayout, LockedView, PFiltersView, TitleFiltersView, UnlockedView ) {
     'use strict';
 
 	var Communicator = Backbone.Marionette.Controller.extend({
 		initialize: function( options ) {
-			// create a pub sub
 			this.mediator = new Backbone.Wreqr.EventAggregator();
-
-			//create a req/res
 			this.reqres = new Backbone.Wreqr.RequestResponse();
-
-			// create commands
 			this.command = new Backbone.Wreqr.Commands();
+
+			var mainLayout = new MainLayout();
+			$("body").append(mainLayout.render().el);
+
+			mainLayout.titleFiltersRegion.show(new TitleFiltersView({}));
+			mainLayout.pFiltersRegion.show(new PFiltersView({}));
+			mainLayout.lockedRegion.show(new LockedView({}));
+			mainLayout.unlockedRegion.show(new UnlockedView({}));
 
 			this.getFonts();
 		},
