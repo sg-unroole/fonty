@@ -25,8 +25,8 @@ function( Backbone, UnlockedTmpl  ) {
 
 		/* on render callback */
 		onRender: function() {
-			this.model.setFont(this.$el.find("h1"));
-			this.pmodel.setFont(this.$el.find("p"));
+			this.model.setFont(this.$el.find("input"));
+			this.pmodel.setFont(this.$el.find("textarea"));
 		}
 	});
 
