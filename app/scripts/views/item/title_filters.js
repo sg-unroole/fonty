@@ -22,8 +22,13 @@ function( Backbone, TitleFiltersTmpl  ) {
 		events: {},
 		
 		getFilter: function(){
-
+			var checked = [];
+			$.each(this.$el.find(".checks-wrapper input:checked"), function(index, input){
+				checked.push($(input).data('filter'));
+			});
+			return checked;
 		},
+
 		/* on render callback */
 		onRender: function() {}
 	});

@@ -27,7 +27,7 @@ function(App, Backbone, Marionette, GoogleAPI, Fonts, Font,
 
 			var fonts = this.getFonts();
 			var p_filter_v = new PFiltersView({}),
-				t_filter_v =new TitleFiltersView({});
+				t_filter_v = new TitleFiltersView({});
 
 			mainLayout.titleFiltersRegion.show(t_filter_v);
 			mainLayout.pFiltersRegion.show(p_filter_v);

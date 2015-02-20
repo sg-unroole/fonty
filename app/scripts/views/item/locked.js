@@ -25,8 +25,8 @@ function( Backbone, UnlockedTmpl  ) {
 		events: {},
 
 		randomizeFonts: function() {
-			this.model = this.collection.randomize(this.t_filter_v.getFilter);
-			this.pmodel = this.collection.randomize(this.p_filter_v.getFilter);
+			this.model = this.collection.randomize(this.t_filter_v.getFilter());
+			this.pmodel = this.collection.randomize(this.p_filter_v.getFilter());
 		},
 		/* on render callback */
 		onRender: function() {
