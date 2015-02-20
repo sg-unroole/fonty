@@ -20,7 +20,10 @@ function( Backbone, PFiltersTmpl  ) {
 
 		/* Ui events hash */
 		events: {},
+		
+		getFilter: function(){
 
+		},
 		/* on render callback */
 		onRender: function() {}
 	});
